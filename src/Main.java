@@ -1,6 +1,9 @@
 /*
 Vertex, WeightedGraph, Search, BreadthFirstSearch, DijkstraSearch
 */
+
+import classes.WeightedGraph;
+
 public class Main {
     public static void main(String[] args) {
         WeightedGraph<String> graph = new WeightedGraph<>(true);

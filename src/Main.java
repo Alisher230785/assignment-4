@@ -3,6 +3,7 @@ Vertex, WeightedGraph, Search, BreadthFirstSearch, DijkstraSearch
 */
 
 import classes.WeightedGraph;
+import classes.Search;
 
 public class Main {
     public static void main(String[] args) {

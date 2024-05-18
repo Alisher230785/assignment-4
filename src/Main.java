@@ -1,10 +1,4 @@
-/*
-Vertex, WeightedGraph, Search, BreadthFirstSearch, DijkstraSearch
-*/
-
-import classes.DijkstraSearch;
-import classes.WeightedGraph;
-import classes.Search;
+import classes.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +14,8 @@ public class Main {
         System.out.println("Dijkstra:");
         Search<String> djk = new DijkstraSearch<>(graph, "Almaty");
         outputPath(djk, "Kyzylorda");
+
+        System.out.println("\n--------------------------------");
 
         System.out.println("DFS:");
         Search<String> dfs = new DepthFirstSearch<>(graph, "Almaty");

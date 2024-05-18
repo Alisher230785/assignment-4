@@ -2,6 +2,7 @@ package classes;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class WeightedGraph<Vertex> {
     private boolean undirected;
@@ -39,15 +40,19 @@ public class WeightedGraph<Vertex> {
     private boolean hasVertex(Vertex source) {
         return map.containsKey(source);
     }
-
-    public Map<Vertex,Double> getNeighbours(Vertex vertex) {
-        if(!hasVertex(vertex)) throw new IndexOutOfBoundsException("Vertex does not exist");
-        return map.get(vertex);
+    public Set<Vertex> getNeighbours(Vertex v) {
+        if (!hasVertex(v))
+            throw new IndexOutOfBoundsException("Vertex does not exist");
+        return map.get(v).keySet();
     }
-
+    public double getEdgeWeight(Vertex source, Vertex dest) {
+        if (!hasEdge(source, dest))
+            throw new IllegalArgumentException("Edge does not exist");
+        return map.get(source).get(dest);
+    }
     public void printGraph() {
         for (Vertex vertex: map.keySet()) {
-            System.out.printf("Vertex %s connected to %s\n",vertex,map.get(vertex));
+            System.out.printf("Vertex %s connected to %s\n", vertex, map.get(vertex));
         }
     }
 

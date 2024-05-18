@@ -2,6 +2,7 @@
 Vertex, WeightedGraph, Search, BreadthFirstSearch, DijkstraSearch
 */
 
+import classes.DijkstraSearch;
 import classes.WeightedGraph;
 import classes.Search;
 
@@ -14,6 +15,7 @@ public class Main {
         graph.addEdge("Shymkent", "Astana", 3.9);
         graph.addEdge("Astana", "Kostanay", 3.5);
         graph.addEdge("Shymkent", "Kyzylorda", 5.4);
+
 
         System.out.println("Dijkstra:");
         Search<String> djk = new DijkstraSearch<>(graph, "Almaty");

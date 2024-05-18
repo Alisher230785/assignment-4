@@ -27,8 +27,8 @@ public class WeightedGraph<Vertex> {
         if (hasEdge(source, dest) || source.equals(dest))
             return;
 
-        addVertex(source);
         map.get(source).put(dest,weight);
+        map.get(dest).put(source,weight);
     }
 
     private boolean hasEdge(Vertex source, Vertex dest) {
@@ -40,5 +40,35 @@ public class WeightedGraph<Vertex> {
         return map.containsKey(source);
     }
 
-    // to be continued
+    public Map<Vertex,Double> getNeighbours(Vertex vertex) {
+        if(!hasVertex(vertex)) throw new IndexOutOfBoundsException("Vertex does not exist");
+        return map.get(vertex);
+    }
+
+    public void printGraph() {
+        for (Vertex vertex: map.keySet()) {
+            System.out.printf("Vertex %s connected to %s\n",vertex,map.get(vertex));
+        }
+    }
+
+    private void checkVertex(Vertex vertex) {
+        if(!hasVertex(vertex)) throw new IndexOutOfBoundsException("Vertex does not exist");
+    }
+
+    public void removeEdge(Vertex source, Vertex dest) {
+        checkVertex(source);
+        checkVertex(dest);
+
+        map.get(source).remove(dest);
+        map.get(dest).remove(source);
+    }
+
+    public void removeVertex(Vertex vertex) {
+        checkVertex(vertex);
+
+        for (Vertex local : map.keySet()) {
+            map.get(local).remove(vertex);
+        }
+        map.remove(vertex);
+    }
 }

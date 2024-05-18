@@ -13,6 +13,7 @@ public class Search<Vertex> {
         marked = new HashSet<>();
         edgeTo = new HashMap<>();
     }
+
     public boolean hasPathTo(Vertex v) {
         return marked.contains(v);
     }
